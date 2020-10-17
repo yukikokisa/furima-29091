@@ -48,20 +48,19 @@ Things you may want to cover:
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
-| image          | string     | null: false                    |
 | item_name      | string     | null: false                    |
 | description    | text       | null: false                    |
-| category       | string     | null: false                    |
-| condition      | string     | null: false                    |
-| postage_player | string     | null: false                    |
-| shipping_area  | string     | null: false                    |
-| shipping_date  | string     | null: false                    |
+| category       | integer    | null: false                    |
+| condition      | integer    | null: false                    |
+| postage_player | integer    | null: false                    |
+| shipping_area  | integer    | null: false                    |
+| shipping_date  | integer    | null: false                    |
 | price          | string     | null: false                    |
 | buyer          | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - has_one :buyer
 
 ## buyer テーブル
@@ -70,31 +69,12 @@ Things you may want to cover:
 | ----------- | ---------- | ------------------------------ |
 | user        | references | null: false, foreign_key: true |
 | item        | references | null: false, foreign_key: true |
-| credit-card | references | null: false, foreign_key: true |
-| adress      | references | null: false, foreign_key: true |
-
 
 ### Association
 
 has_many :users
-belongs_to :items
-has_one :credit-cards
-has_one :adresses
+belongs_to :item
 
-
-## credit-cards テーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| buyer         | references | null: false, foreign_key: true |
-| card_number   | string     | null: false                    |
-| card_year     | string     | null: false                    |
-| card_month    | string     | null: false                    |
-| security_code | string     | null: false                    |
-
-### Association
-
-- belongs_to : buyer
 
 ## adresses テーブル
 
@@ -105,7 +85,7 @@ has_one :adresses
 | prefecture   | integer    | null: false                    |
 | city         | string     | null: false                    |
 | address      | string     | null: false                    |
-| apartment    | string     |                                 |
+| apartment    | string     |                                |
 | phone_number | string     | null: false                    |
 
 ### Association
