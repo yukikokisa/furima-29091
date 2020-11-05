@@ -29,27 +29,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
       it 'category_idが1では登録できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'condition_idが1では登録できない' do
-        @item.condition_id = '1'
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
       it 'postage_player_idが1では登録できない' do
-        @item.postage_player_id = '1'
+        @item.postage_player_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Postage player must be other than 1')
       end
       it 'shipping_area_idが1では登録できない' do
-        @item.shipping_area_id = '1'
+        @item.shipping_area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping area must be other than 1')
       end
       it 'shipping_date_idが1では登録できない' do
-        @item.shipping_date_id = '1'
+        @item.shipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping date must be other than 1')
       end
