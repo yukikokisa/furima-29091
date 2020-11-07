@@ -20,12 +20,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @user = User.find(@item.user_id)
-    @category = Category.find(@item.category_id)
-    @condition = Condition.find(@item.condition_id)
-    @postage_player = PostagePlayer.find(@item.postage_player_id)
-    @shipping_area = ShippingArea.find(@item.shipping_area_id)
-    @shipping_date = ShippingDate.find(@item.shipping_date_id)
   end
 
   private
