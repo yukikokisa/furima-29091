@@ -4,7 +4,7 @@ class OrderAddress
                 :building_name, :phone_number, :user_id, :item_id, :token
 
   with_options presence: true do
-    validates :city, :house_number, :token
+    validates :city, :house_number, :user_id, :item_id, :token
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :phone_number, format: { with: /\A\d{11}\z/ }
