@@ -1,3 +1,4 @@
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -41,7 +42,8 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :buyers
+- has_one :order
+- has_one :address
 
 ## items テーブル
 
@@ -60,14 +62,15 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_one :buyer
+- has_one :order
 
-## buyer テーブル
+## orders テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | user        | references | null: false, foreign_key: true |
 | item        | references | null: false, foreign_key: true |
+| price       | integer    | null: false                    |
 
 ### Association
 
@@ -79,14 +82,15 @@ has_one :address
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| buyer          | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 | postal_code    | string     | null: false                    |
 | prefecture_id  | integer    | null: false                    |
 | city           | string     | null: false                    |
-| address        | string     | null: false                    |
-| apartment      | string     |                                |
+| house_number   | string     | null: false                    |
+| building_name  | string     |                                |
 | phone_number   | string     | null: false                    |
 
 ### Association
-
-- belongs_to : buyer
+- belongs_to : user
+- belongs_to : order
